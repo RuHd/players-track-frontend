@@ -1,0 +1,25 @@
+.clear-list-btn {
+    position: relative;
+    &>* {
+        fill: white;
+        stroke: white;
+        color: white;
+    }
+
+}
+
+.clear-list-btn::after {    
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    text-align: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.clear-list-btn:hover {
+   background-color: red;
+    
+}

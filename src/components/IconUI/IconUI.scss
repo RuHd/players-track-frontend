@@ -1,0 +1,12 @@
+.icon-ui {
+    background-color: red;
+    color: red;
+}
+
+.icon-ui:hover {
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(10);
+    z-index: 2;
+
+}
