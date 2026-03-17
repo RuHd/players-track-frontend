@@ -1,4 +1,3 @@
-import React from 'react'
 import { IoTrashBinSharp } from "react-icons/io5";
 import './ClearListUI.scss'
 import { preventDefault } from '@/utils/functions';
