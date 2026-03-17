@@ -1,5 +1,5 @@
 import { IoTrashBinSharp } from "react-icons/io5";
-import './ClearListUI.scss';
+import styles from './ClearListUI.module.scss';
 import { preventDefault } from '@/utils/functions';
 
 const ClearListUI = ({setgamesList}) => {
@@ -10,7 +10,7 @@ const ClearListUI = ({setgamesList}) => {
     setgamesList([])
   }
   return (
-    <button onClick={(e)=> handleClick(e)} className='clear-list-btn'>
+    <button onClick={(e)=> handleClick(e)} className={styles['clear-list-btn']}>
         <IoTrashBinSharp size={30} fill='white'/>
     </button>
   )
