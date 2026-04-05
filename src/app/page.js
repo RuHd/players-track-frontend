@@ -84,10 +84,9 @@ export default function Home() {
     }
 
     const interval = setInterval(async () => {
-      const res = await fetch(`${HOST}updateJSON`)
-
-      if (!res.ok) alert('Failed to update JSON file');
-    }, 300000)
+      fetchGameData('updateJSON', 'GET') 
+     
+    }, 50000)
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, [])
