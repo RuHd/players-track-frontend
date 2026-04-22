@@ -55,7 +55,7 @@ export const openModal = (e, gameStats, setmodalStats) => {
 
 // Fetch game data from backend
 export const fetchGameData = async (endpoint, method, game) => {
-    debugger
+    const controller = new AbortController();
     try {
         const url = `${HOST}${endpoint}`;
         const res = await fetch(url, {
@@ -63,6 +63,7 @@ export const fetchGameData = async (endpoint, method, game) => {
             headers: {
                 "Content-Type": "application/json"
             },
+            signal: controller.signal,
             body: method == 'POST' ? JSON.stringify({game}) : null
         })
 
@@ -70,8 +71,10 @@ export const fetchGameData = async (endpoint, method, game) => {
 
         return {status: res.status, data: data};
     } catch (error) {
-        alert("Error fetching game data: " + error.message);
-        return {status: 500, data: null};
+        if (error.name === 'AbortError') {
+            throw new Error('Fetch Data request was aborted');
+        }
+        throw error;
     }
 } 
 
